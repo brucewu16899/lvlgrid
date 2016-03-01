@@ -1,0 +1,15 @@
+{
+    "name": "mrjj/lvlgrid",
+    "description": "Grid helper to your Laravel application.",
+    "keywords": ["laravel", "vuejs", "grid", "datagrid", "table"],
+    "authors": [
+        {
+            "name": "Marcosrjjunior"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mrjj\\LvlGrid\\": "src/LvlGrid"
+        }
+    }
+}
