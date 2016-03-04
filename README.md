@@ -36,7 +36,7 @@ And then include the service provider within `app/config/app.php`.
 First, create add a route to grid method
 
 ```php
-Route::get('stages/grid', '....Controller@grid');
+Route::get('countries/grid', '....Controller@grid');
 ```  
 
 Use a trait and add a required informations in your controller
@@ -78,14 +78,14 @@ Finally, add this @includes and set your options in your view.
         gridOptions = {
             columns: columns,
             routes: {
-                function: '/stages/grid', // ..Controller@grid();
+                function: '/countries/grid', // ..Controller@grid();
                 edit: {
                     column: 'id',
-                    name: '/stages/:column/edit' 
+                    name: '/countries/:column/edit' 
                 },
                 delete: {
                     column: 'id',
-                    name: '/stages/:column/delete'
+                    name: '/countries/:column/delete'
                 },
             }
         };
