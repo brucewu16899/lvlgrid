@@ -5,6 +5,7 @@
 ## Documentation
  * [Installation](#installation) 
  * [Getting started](#getting-started) 
+ * [Get Data](#get-data) 
  * [Transformer](#transformer) 
 
 ___
@@ -65,13 +66,13 @@ Finally, add this @includes and set your options in your view.
     <script>
         var columns = [
             {
-                'key': 'title',
-                'name': 'Title'
+                'key': 'name',
+                'name': 'Name'
             },
             {
-                'key': 'status',
-                'name': 'Status'
-            },
+                'key': 'monetary',
+                'name': 'Monetary unit'
+            },  
         ],
 
         gridOptions = {
@@ -100,6 +101,18 @@ Finally, add this @includes and set your options in your view.
     @include('lvlgrid::grid')  
     ..
 ```  
+
+#### Get Data
+Add a gridData() method if you want to customize your query
+
+```php
+public function gridData()
+{
+    return DB::table('users')
+            ->leftJoin('posts', 'users.id', '=', 'posts.user_id')
+}
+```
+> @return \Illuminate\Database\Query\Builder
 
 #### Transformer
 
