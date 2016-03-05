@@ -21,7 +21,9 @@ ___
 
 First, pull in the package through Composer.
 
-`composer require mrjj/lvlgrid`
+```
+composer require mrjj/lvlgrid
+```
 
 And then include the service provider within `app/config/app.php`.
 
@@ -48,7 +50,7 @@ class ..Controller extends Controller
 {
     use LvlGrid
 
-    protected $gridModel = \App\Models\Course::class;
+    protected $gridModel = \App\Models\Country::class;
 
     protected $threshold = 30;  
     ...

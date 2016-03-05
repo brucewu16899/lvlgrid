@@ -11,7 +11,7 @@ class LvlGridServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'lvlgrid');
 
         $this->publishes([
-            __DIR__ . '/../../resources/views' => base_path('resources/views/vendor/mrjj/lvlgrid')
+            __DIR__ . '/../../resources/views' => base_path('resources/views/vendor/lvlgrid')
         ]);
     }
 
