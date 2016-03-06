@@ -58,49 +58,47 @@ class ..Controller extends Controller
 
 ```
 
-Finally, add this @includes and set your options in your view.
+Finally, add this @includes(lvlgrid::...) , lvlgrid component and fill your infos
 
 ```php  
 @extend('default')
 
 @section('scripts')
-    ...
-    <script>
-        var columns = [
-            {
-                'key': 'name',
-                'name': 'Name'
-            },
-            {
-                'key': 'monetary',
-                'name': 'Monetary unit'
-            },  
-        ],
-
-        gridOptions = {
-            columns: columns,
-            routes: {
-                function: '/countries/grid', // ..Controller@grid();
-                edit: {
-                    column: 'id',
-                    name: '/countries/:column/edit' 
-                },
-                delete: {
-                    column: 'id',
-                    name: '/countries/:column/delete'
-                },
-            }
-        };
-    </script>
 
     @include('lvlgrid::scripts')
-    ...
+
 @stop
 
 @section('content')
     <h3>lvlGrid</h3>
 
     @include('lvlgrid::grid')  
+
+    <div id="lvlgrid">
+
+        <lvlgrid
+            :data="items"
+            :columns="[{
+                'key': 'name',
+                'name': 'Nome'
+            },{
+                'key': 'slug',
+                'name': 'Slug'
+            }]"
+            :routes="{
+                function: '/admin/posts/grid',
+                edit: {
+                    column: 'id',
+                    name: '/admin/posts/:column/edit'
+                },
+                delete: {
+                    column: 'id',
+                    name: '/admin/posts/:column/delete'
+                }
+            }">
+        </lvlgrid>
+
+    </div>  
     ..
 ```  
 

@@ -33,11 +33,12 @@ var Filter = Vue.component('filter-component', {
     },
 })
 
-Vue.component('grid-component', {
-    template: '#grid-template',
+Vue.component('lvlgrid', {
+    template: '#lvlgrid-template',
     props: {
         data: Array,
-        columns: Array
+        columns: Array,
+        routes: Object,
     },
 
     data: function () {
@@ -51,7 +52,6 @@ Vue.component('grid-component', {
             filterComponent: [],
             sortKey: '',
             sortOrders: sortOrders,
-            options: gridOptions,
             sort: '',
             direction:  '',
             search: '',
@@ -82,7 +82,7 @@ Vue.component('grid-component', {
         grid: function() {
             $.ajax({
                 type: "GET",
-                url: this.options.routes.function,
+                url: this.routes.function,
                 data: {
                     search: this.search,
                     columnSearch: this.columnSearch,
@@ -102,11 +102,10 @@ Vue.component('grid-component', {
     }
 })
 
-var grid = new Vue({
-    el: '#grid',
+var lvlgrid = new Vue({
+    el: '#lvlgrid',
     data: {
         searchQuery: '',
-        columns: columns,
         items: []
     }
 })

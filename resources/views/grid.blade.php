@@ -17,7 +17,7 @@
     </div>
 </template>
 
-<template id="grid-template">
+<template id="lvlgrid-template">
     <div>
         <filters></filters>
         <table class="data-grid table table-striped table-bordered table-hover">
@@ -40,13 +40,13 @@
                 <tr v-for="
                     entry in data">
                     <td v-for="column in columns">
-                        <a href="@{{options.routes.edit.name.replace(':column', entry[options.routes.edit.column])}}"
+                        <a href="@{{routes.edit.name.replace(':column', entry[routes.edit.column])}}"
                             v-if="$index == 0"
                         >@{{entry[column.key]}}</a>
                         <span v-else>@{{entry[column.key]}}</span>
                     </td>
                     <td class="actions">
-                        <a class="btn btn-link" href="@{{options.routes.delete.name.replace(':column', entry[options.routes.delete.column])}}">
+                        <a class="btn btn-link" href="@{{routes.delete.name.replace(':column', entry[routes.delete.column])}}">
                             <span class="glyphicon glyphicon-remove"></span>
                         </a>
                     </td>
@@ -71,13 +71,6 @@
         </div>
     </div>
 </template>
-
-<div id="grid">
-    <grid-component
-        :data="items"
-        :columns="columns">
-    </grid-component>
-</div>
 
 <style>
 .actions {
