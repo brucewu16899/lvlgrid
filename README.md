@@ -80,10 +80,10 @@ Finally, add this @includes(lvlgrid::...) , lvlgrid component and fill your info
             :data="items"
             :columns="[{
                 'key': 'name',
-                'name': 'Nome'
+                'name': 'Name'
             },{
-                'key': 'slug',
-                'name': 'Slug'
+                'key': 'monetary',
+                'name': 'Monetary unit'
             }]"
             :routes="{
                 function: '/countries/grid',
