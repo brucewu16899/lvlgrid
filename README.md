@@ -86,14 +86,14 @@ Finally, add this @includes(lvlgrid::...) , lvlgrid component and fill your info
                 'name': 'Slug'
             }]"
             :routes="{
-                function: '/admin/posts/grid',
+                function: '/countries/grid',
                 edit: {
                     column: 'id',
-                    name: '/admin/posts/:column/edit'
+                    name: '/countries/:column/edit'
                 },
                 delete: {
                     column: 'id',
-                    name: '/admin/posts/:column/delete'
+                    name: '/countries/:column/delete'
                 }
             }">
         </lvlgrid>
