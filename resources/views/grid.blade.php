@@ -55,16 +55,24 @@
         </table>
 
         <div class="btn-group pull-right" role="group" aria-label="Large button group">
+            <a type="button" class="btn btn-default change-page" data-offset="0" disabled v-if="pagination.page == 0">
+                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+            </a>
+
             <a type="button" class="btn btn-default change-page" data-offset="0"
                 v-on:click="pagination.page--, grid()"
-                :disabled="pagination.page == 0"
+                v-else
             >
                 <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
             </a>
 
+            <a type="button" class="btn btn-default change-page" data-offset="0" disabled v-if="pagination.pagesCount == pagination.page">
+                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+            </a>
+
             <a type="button" class="btn btn-default change-page" data-offset="1"
                 v-on:click="pagination.page++, grid()"
-                :disabled="pagination.pagesCount == pagination.page"
+                v-else
             >
                 <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
             </a>
