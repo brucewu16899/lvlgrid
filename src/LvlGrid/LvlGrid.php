@@ -73,13 +73,13 @@ trait LvlGrid
             $query->where($data['columnSearch'], 'like', '%'.$data['search'].'%' );
         }
 
-        $resultsCount = $query->count();
+        $count = $query->count();
 
-        if ($resultsCount < $this->threshold) {
+        if ($count < $this->threshold) {
             return $this->gridParameters($query);
         }
 
-        $this->gridCalculatePages();
+        $this->gridCalculatePages($count);
 
         $query = $query
             ->take($this->threshold)
@@ -88,10 +88,10 @@ trait LvlGrid
         return $this->gridParameters($query);
     }
 
-    public function gridCalculatePages()
+    public function gridCalculatePages($count)
     {
-        $this->pagesCount = (int) ceil($resultsCount / $this->threshold);
-        $this->perPage = (int) ceil($resultsCount / $this->pagesCount);
+        $this->pagesCount = (int) ceil($count / $this->threshold);
+        $this->perPage = (int) ceil($count / $this->pagesCount);
     }
 
     public function gridParameters($query)
