@@ -76,24 +76,31 @@ trait LvlGrid
         $resultsCount = $query->count();
 
         if ($resultsCount < $this->threshold) {
-            return [
-                'items'      => $query->get(),
-                'perPage'    => $this->perPage,
-                'pagesCount' => $this->pagesCount,
-            ];
+            return $this->gridParameters($query);
         }
 
-        $this->pagesCount = (int) ceil($resultsCount / $this->threshold);
-        $this->perPage = (int) ceil($resultsCount / $this->pagesCount);
+        $this->gridCalculatePages();
 
         $query = $query
             ->take($this->threshold)
             ->skip($data['page'] * $this->threshold);
 
+        return $this->gridParameters($query);
+    }
+
+    public function gridCalculatePages()
+    {
+        $this->pagesCount = (int) ceil($resultsCount / $this->threshold);
+        $this->perPage = (int) ceil($resultsCount / $this->pagesCount);
+    }
+
+    public function gridParameters($query)
+    {
         return [
             'items'      => $query->get(),
             'perPage'    => $this->perPage,
             'pagesCount' => $this->pagesCount,
         ];
     }
+
 }
