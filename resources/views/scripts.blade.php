@@ -25,7 +25,12 @@ var Filter = Vue.component('filter-component', {
 
     methods: {
         setFilter: function() {
+            this.resetPage();
             this.$parent.grid();
+        },
+
+        resetPage: function() {
+            this.$parent.pagination.page = 0;
         }
     },
     created: function () {

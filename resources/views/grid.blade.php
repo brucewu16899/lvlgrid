@@ -54,29 +54,33 @@
             </tbody>
         </table>
 
-        <div class="btn-group pull-right" role="group" aria-label="Large button group">
-            <a type="button" class="btn btn-default change-page" data-offset="0" disabled v-if="pagination.page == 0">
-                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-            </a>
-
-            <a type="button" class="btn btn-default change-page" data-offset="0"
-                v-on:click="pagination.page--, grid()"
-                v-else
-            >
-                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-            </a>
-
-            <a type="button" class="btn btn-default change-page" data-offset="0" disabled v-if="pagination.pagesCount == pagination.page">
-                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-            </a>
-
-            <a type="button" class="btn btn-default change-page" data-offset="1"
-                v-on:click="pagination.page++, grid()"
-                v-else
-            >
-                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-            </a>
-        </div>
+        <nav>
+            <ul class="pagination pull-right">
+                <li v-if="pagination.page != 0">
+                    <a href="#" aria-label="Previous" @click="pagination.page--, grid()">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li v-else>
+                    <a href="#" aria-label="Previous" disabled>
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li v-for="page in pagination.pagesCount+1" :class="{'active': pagination.page == $index}">
+                    <a href="#" @click="pagination.page = $index, grid()">@{{ $index + 1 }}</a>
+                </li>
+                <li v-if="pagination.pagesCount != pagination.page">
+                    <a href="#" aria-label="Next" @click="pagination.page++, grid()">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                <li v-else>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </template>
 
@@ -86,5 +90,8 @@
 }
 .actions .btn {
     padding: 0 10px;
+}
+.pagination {
+    margin: 10px 0;
 }
 </style>

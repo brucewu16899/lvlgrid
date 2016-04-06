@@ -1,6 +1,6 @@
 # lvlGrid
 
-<a href="https://github.com/marcosrjjunior/lvlgrid/"><img src="https://cloud.githubusercontent.com/assets/5287262/13515471/50e314fe-e190-11e5-85fb-3bf3cf9b6129.jpg" alt="lvlgrid"></a>
+<a href="https://github.com/marcosrjjunior/lvlgrid/"><img src="https://cloud.githubusercontent.com/assets/5287262/14336211/f996cf84-fc37-11e5-9c0b-04c27625232e.jpg" alt="lvlgrid"></a>
 
 ## Documentation
  * [Installation](#installation) 
